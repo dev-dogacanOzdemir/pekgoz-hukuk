@@ -732,10 +732,206 @@ h1, h2, h3, h4 {
     color: var(--gold);
     font-weight: 700;
 }
+.team-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+}
 .team-info { padding: 24px 26px; }
 .team-info h3 { font-size: 20px; margin-bottom: 4px; }
 .team-info .role { color: var(--gold-dark); font-weight: 600; font-size: 14px; margin-bottom: 12px; }
 .team-info p { color: var(--muted); font-size: 14px; }
+.team-info .more { margin-top: 14px; }
+
+/* Kurucu ikili (2 kişilik ortalanmış kadro) */
+.team-grid.duo {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 720px;
+    margin-inline: auto;
+}
+.team-grid.duo .team-photo { height: 360px; }
+
+/* Ana sayfa kurucular vitrini */
+.founders {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(900px 520px at 82% -12%, rgba(200, 164, 93, 0.18), transparent 60%),
+        linear-gradient(165deg, var(--navy-dark), var(--navy) 55%, var(--navy-soft));
+}
+.founders .section-head { margin-bottom: 54px; }
+.founders .section-head .eyebrow { color: var(--gold-light); }
+.founders .section-head h2 {
+    color: #fff;
+    font-size: clamp(2rem, 1.2rem + 3vw, 3.1rem);
+    letter-spacing: -0.5px;
+}
+.founders .section-head p { color: #cbd5e1; }
+
+.founders-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    max-width: 900px;
+    margin-inline: auto;
+    align-items: stretch;
+}
+.founder-card {
+    position: relative;
+    display: block;
+    border-radius: 16px;
+    overflow: hidden;
+    isolation: isolate;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: var(--shadow-lg);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+}
+.founder-img { position: relative; z-index: 0; }
+.founder-card img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1143 / 1600;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    filter: saturate(0.96) contrast(1.02);
+    transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+}
+.founder-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(to top, rgba(7, 17, 31, 0.95) 2%, rgba(7, 17, 31, 0.5) 30%, rgba(7, 17, 31, 0) 58%);
+    transition: opacity 0.5s ease;
+}
+.founder-card::after {
+    content: "";
+    position: absolute;
+    inset: 13px;
+    z-index: 2;
+    border: 1px solid rgba(200, 164, 93, 0.55);
+    border-radius: 9px;
+    opacity: 0;
+    transform: scale(1.02);
+    transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+}
+.founder-card:hover::after { opacity: 1; transform: scale(1); }
+.founder-meta {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    padding: 28px 28px 26px;
+}
+.founder-meta .fk-line {
+    display: block;
+    width: 38px;
+    height: 2px;
+    background: var(--gold);
+    margin-bottom: 14px;
+    transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.founder-meta h3 {
+    color: #fff;
+    font-size: 27px;
+    line-height: 1.12;
+    margin: 0;
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.4);
+}
+.founder-meta .role {
+    color: var(--gold-light);
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+    margin-top: 7px;
+}
+.founder-meta .fk-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+    margin-top: 18px;
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(8px);
+    overflow: hidden;
+    transition: opacity 0.45s ease, transform 0.45s ease, max-height 0.45s ease;
+}
+.founder-meta .fk-link svg { transition: transform 0.3s ease; }
+.founder-card:hover { transform: translateY(-10px); box-shadow: 0 34px 70px rgba(0, 0, 0, 0.45); }
+.founder-card:hover img { transform: scale(1.06); filter: saturate(1.06) contrast(1.04); }
+.founder-card:hover .fk-line { width: 66px; }
+.founder-card:hover .fk-link,
+.founder-card:focus-visible .fk-link {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 40px;
+}
+.founder-card:hover .fk-link svg { transform: translateX(4px); }
+.founder-card:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+@media (max-width: 640px) {
+    .founders-grid { grid-template-columns: 1fr; max-width: 380px; }
+    .founder-meta .fk-link { opacity: 1; transform: none; max-height: 40px; }
+}
+
+/* Biyografi sayfası */
+.bio-section { padding: var(--space-section, 80px) 0; }
+.bio-grid {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 60px;
+    align-items: start;
+}
+.bio-photo {
+    position: sticky;
+    top: 100px;
+    max-width: 300px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow-md);
+}
+.bio-photo img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1143 / 1600;
+    object-fit: cover;
+    display: block;
+}
+.bio-photo .bio-photo-meta {
+    padding: 18px 22px;
+    background: var(--white);
+}
+.bio-photo-meta .name { font-family: var(--serif); font-size: 22px; line-height: 1.2; }
+.bio-photo-meta .role { color: var(--gold-dark); font-weight: 600; font-size: 14px; margin-top: 4px; }
+.bio-body h2 { font-size: 30px; margin: 0 0 6px; }
+.bio-body .eyebrow { margin-bottom: 16px; }
+.bio-body p { color: var(--muted); margin-bottom: 16px; line-height: 1.75; }
+.bio-body h3 { font-size: 19px; margin: 28px 0 14px; }
+.bio-tags { display: flex; flex-wrap: wrap; gap: 10px; margin: 6px 0 8px; }
+.bio-tags span {
+    border: 1px solid var(--line);
+    background: var(--cream);
+    color: var(--navy);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 7px 14px;
+    border-radius: 999px;
+}
+.bio-contact-row { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
+
+@media (max-width: 860px) {
+    .bio-grid { grid-template-columns: 1fr; gap: 28px; }
+    .bio-photo { position: static; max-width: 280px; }
+}
 
 /* CTA banner */
 .cta {
