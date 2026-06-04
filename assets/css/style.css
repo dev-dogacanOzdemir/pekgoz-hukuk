@@ -1041,6 +1041,67 @@ h1, h2, h3, h4 {
 }
 .contact-form h3 { font-size: 26px; margin-bottom: 8px; }
 .contact-form > p { color: var(--muted); margin-bottom: 28px; font-size: 15px; }
+/* WhatsApp iletişim paneli */
+.contact-wa {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 40px;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+}
+.wa-badge {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background: linear-gradient(135deg, #25d366, #128c7e);
+    box-shadow: 0 10px 24px rgba(18, 140, 126, 0.3);
+    margin-bottom: 22px;
+}
+.contact-wa h3 { font-size: 26px; margin-bottom: 8px; }
+.contact-wa > p { color: var(--muted); margin-bottom: 26px; font-size: 15px; line-height: 1.65; }
+.wa-actions { display: flex; flex-direction: column; gap: 14px; }
+.wa-btn {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    border-radius: 14px;
+    border: 1px solid var(--line);
+    background: var(--cream);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+.wa-btn-ic {
+    flex: none;
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background: linear-gradient(135deg, #25d366, #128c7e);
+}
+.wa-btn-text { display: flex; flex-direction: column; line-height: 1.3; flex: 1; }
+.wa-btn-text strong { color: var(--navy); font-size: 15.5px; }
+.wa-btn-text small { color: var(--muted); font-size: 14px; letter-spacing: 0.3px; white-space: nowrap; }
+.wa-btn-arrow { color: var(--gold-dark); flex: none; transition: transform 0.25s ease; }
+.wa-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: rgba(37, 211, 102, 0.5);
+    background: #fff;
+}
+.wa-btn:hover .wa-btn-arrow { transform: translateX(4px); }
+.wa-note { margin-top: 22px; color: var(--muted); font-size: 13.5px; line-height: 1.6; }
+.wa-note a { color: var(--gold-dark); font-weight: 600; }
+.wa-note a:hover { color: var(--gold); }
+
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
 .form-group { margin-bottom: 18px; }
 .form-group label { display: block; font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 8px; }
