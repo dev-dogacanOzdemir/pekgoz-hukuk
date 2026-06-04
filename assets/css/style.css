@@ -753,6 +753,16 @@ h1, h2, h3, h4 {
 }
 .team-grid.duo .team-photo { height: 360px; }
 
+/* Vizyon & Misyon (hakkımızda) */
+.vm-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+@media (max-width: 768px) {
+    .vm-grid { grid-template-columns: 1fr; gap: 36px; }
+}
+
 /* Ana sayfa kurucular vitrini */
 .founders {
     position: relative;
@@ -929,8 +939,9 @@ h1, h2, h3, h4 {
 .bio-contact-row { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
 
 @media (max-width: 860px) {
-    .bio-grid { grid-template-columns: 1fr; gap: 28px; }
-    .bio-photo { position: static; max-width: 280px; }
+    .bio-grid { grid-template-columns: 1fr; gap: 28px; justify-items: center; }
+    .bio-photo { position: static; width: 100%; max-width: 300px; margin-inline: auto; }
+    .bio-body { width: 100%; }
 }
 
 /* CTA banner */
@@ -1070,6 +1081,19 @@ h1, h2, h3, h4 {
     color: var(--muted);
     font-weight: 600;
 }
+.map-link {
+    margin-top: 16px;
+    text-align: right;
+}
+.map-link a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--gold-dark);
+    font-weight: 600;
+    font-size: 14px;
+}
+.map-link a:hover { color: var(--gold); }
 
 /* =============================================================
    FOOTER
