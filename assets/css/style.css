@@ -264,9 +264,12 @@ h1, h2, h3, h4 {
     transition: border-color 0.35s ease;
 }
 .site-header.scrolled .navbar-contact { border-left-color: var(--line); }
-.phone-link { color: var(--white); font-size: 14px; font-weight: 600; white-space: nowrap; transition: color 0.35s ease; }
+.phone-link { display: inline-flex; align-items: center; color: var(--white); font-size: 14px; font-weight: 600; white-space: nowrap; transition: color 0.35s ease; }
 .site-header.scrolled .phone-link { color: var(--navy); }
-.phone-link span { color: var(--gold); margin-right: 8px; }
+.phone-link > span:first-child { color: var(--gold); margin-right: 8px; }
+.phone-nums { display: flex; flex-direction: column; line-height: 1.3; }
+.phone-nums a { color: inherit; transition: color 0.25s ease; }
+.phone-nums a:hover { color: var(--gold); }
 .appointment-btn {
     display: inline-flex;
     align-items: center;
@@ -1246,8 +1249,10 @@ h1, h2, h3, h4 {
         transform: none; box-shadow: none; padding: 0 0 12px; display: none;
     }
     .dropdown.open .dropdown-menu { display: block; }
-    .navbar-contact { border-left: 0; padding-left: 0; margin-top: 22px; flex-direction: column; align-items: stretch; }
-    .phone-link { color: var(--navy); text-align: center; padding: 10px 0; }
+    .navbar-contact { border-left: 0; padding-left: 0; margin-left: 0; width: 100%; margin-top: 22px; flex-direction: column; align-items: center; }
+    .phone-link { color: var(--navy); justify-content: center; padding: 10px 0; }
+    .phone-nums { flex-direction: row; align-items: center; gap: 8px; }
+    .phone-nums a:first-child::after { content: "·"; margin-left: 8px; color: var(--gold); }
     .appointment-btn { width: 100%; }
 
     .about-grid { grid-template-columns: 1fr; gap: 40px; }
